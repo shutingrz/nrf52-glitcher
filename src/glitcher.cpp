@@ -58,6 +58,13 @@ inline void fast_glitch(int width) // width min 35ns, count+1 = +25ns
   GPIO_OUT_W1TC_REG_REF = BIT(GLITCHER);
 }
 
+inline void slow_glitch(int width)
+{
+  GPIO_OUT_W1TS_REG_REF = BIT(GLITCHER);
+  delayMicroseconds(width);
+  GPIO_OUT_W1TC_REG_REF = BIT(GLITCHER);
+}
+
 inline void delay_25ns(int count)
 {
   for(int i=0; i<count;i++){
@@ -97,7 +104,7 @@ void do_glitcher()
   }else{
     set_power(HIGH);
     delayMicroseconds(delay_count);
-    delayMicroseconds(width);
+    slow_glitch(width);
   }
 
   if (inc_width())

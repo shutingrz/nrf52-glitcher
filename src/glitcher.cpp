@@ -49,7 +49,7 @@ void glitcher_stop()
   digitalWrite(GLITCHER, LOW);
 }
 
-void fast_glitch(int width) // width min 35ns, count+1 = +25ns
+inline void fast_glitch(int width) // width min 35ns, count+1 = +25ns
 {
   GPIO_OUT_W1TS_REG_REF = BIT(GLITCHER);
   for(int i=0; i<width;i++){
@@ -58,7 +58,7 @@ void fast_glitch(int width) // width min 35ns, count+1 = +25ns
   GPIO_OUT_W1TC_REG_REF = BIT(GLITCHER);
 }
 
-void delay_25ns(int count)
+inline void delay_25ns(int count)
 {
   for(int i=0; i<count;i++){
     asm volatile("");
@@ -77,8 +77,8 @@ bool get_glitcher()
 
 void set_power(bool state)
 {
-  digitalWrite(NRF_POWER, state);
   digitalWrite(LED, state);
+  digitalWrite(NRF_POWER, state);
 }
 
 void do_glitcher()
@@ -88,15 +88,16 @@ void do_glitcher()
   digitalWrite(swd_clock_pin, LOW);
   set_power(LOW);
   delay(_power_off_delay);
-  set_power(HIGH);
   int width = get_width();
   int delay_count = get_delay();
   if(paranoia_mode){
+    set_power(HIGH);
     delay_25ns(delay_count);
     fast_glitch(width);
   }else{
+    set_power(HIGH);
     delayMicroseconds(delay_count);
-    fast_glitch(width*40);
+    delayMicroseconds(width);
   }
 
   if (inc_width())

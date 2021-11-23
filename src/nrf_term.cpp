@@ -205,7 +205,7 @@ void cmd_nrf_swd()
     if(state == 0){
         Serial.println(F("APPROTECT enabled."));
     }else{
-        Serial.println(F("APPEOTECT disabled."));
+        Serial.println(F("APPROTECT disabled."));
     }
 
     if(dev_type != 0){

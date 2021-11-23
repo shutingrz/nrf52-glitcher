@@ -16,8 +16,8 @@ struct Param
 Param params[] = {
     {"delay_start", &delay_start},
     {"width_start", &width_start},
-    {"delay_end", &delay_max},
-    {"width_end", &width_max},
+    {"delay_end", &delay_end},
+    {"width_end", &width_end},
     {"paranoia_mode", &paranoia_mode}
 };
 

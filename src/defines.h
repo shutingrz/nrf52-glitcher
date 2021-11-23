@@ -48,5 +48,5 @@ struct nrf_info_struct
   uint32_t info_variant;
   uint32_t info_package;
   uint16_t sd_info_area;
-  uint32_t ucir_lock;
+  uint32_t uicr_lock;
 };

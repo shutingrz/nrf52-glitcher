@@ -4,17 +4,18 @@
 */
 #pragma once
 
-extern uint32_t delay_max;
-extern uint32_t width_max ;
 
 extern uint32_t delay_start;
 extern uint32_t width_start;
+extern uint32_t delay_end;
+extern uint32_t width_end;
 extern uint32_t paranoia_mode;
 
 void glitcher_begin();
 void set_glitcher(bool new_state);
 bool get_glitcher();
 void set_power(bool state);
+bool check_nrf_unlock();
 void do_glitcher();
 void glitcher_stop();
 void glitcher_prepare();

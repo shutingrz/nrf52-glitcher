@@ -127,7 +127,7 @@ void nrf_read_ufcr()
   nrf_ufcr.info_variant = read_register(0x10000104, 1);
   nrf_ufcr.info_package = read_register(0x10000108, 1);
   nrf_ufcr.sd_info_area = read_register(0x0000300C, 1) & 0xffff;
-  nrf_ufcr.ucir_lock = read_register(0x10001208, 1);
+  nrf_ufcr.uicr_lock = read_register(0x10001208, 1);
 }
 
 uint32_t read_register(uint32_t address, bool muted)

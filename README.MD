@@ -74,3 +74,8 @@ SWD port unlocked!
 nrf>
 ```
 
+# Reference
+
+- [nRF52 Debug Resurrection (APPROTECT Bypass) Part 1](https://limitedresults.com/2020/06/nrf52-debug-resurrection-approtect-bypass/)
+
+This tool was inspired by [atc1441/ESP32_nRF52_SWD](https://github.com/atc1441/ESP32_nRF52_SWD)

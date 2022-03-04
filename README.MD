@@ -2,6 +2,8 @@
 
 Voltage Fault Injectionを行うESP32のプログラムです。
 
+**※自分自身が所有する機器にのみ使用してください。**
+
 
 
 # Usage
